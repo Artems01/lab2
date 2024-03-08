@@ -30,4 +30,3 @@ with open("work.txt", 'r') as file:
                     numbers = []
     for i in str(max(numbers)):
         print(nums.get(i), end=' ')
-    print('')
