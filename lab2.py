@@ -12,7 +12,6 @@ nums = {'0': "ноль", '1': 'один', '2': "два",
         '6': "шесть", '7': "семь", '8': "восемь",
         '9': "девять", 'A': 'десять', 'B': 'одиннадцать',
         'C': 'двенадцать', 'D': 'тринадцать', 'E': 'четырнадцать', 'F': 'пятнадцать'}
-max_s = 0
 max_number = 1024
 max_number_hex = int(hex(max_number)[2:])
 with open("work.txt", 'r') as file:
@@ -21,10 +20,14 @@ with open("work.txt", 'r') as file:
     values = re.findall(reg, text)
     numbers = []
     for i in range(len(values)):
-        if int(values[i], 16) >= max_s and (int(values[i], 16) <= max_number_hex):
+        if (int(values[i], 16) <= max_number_hex):
             numbers.append(int(values[i], 16))
             if i != len(values) - 1:
                 if int(values[i], 16) <= int(values[i + 1], 16):
-                    print(max(numbers))
+                    for i in str(max(numbers)):
+                        print(nums.get(i), end=' ')
+                    print('')
                     numbers = []
-    print(max(numbers))
+    for i in str(max(numbers)):
+        print(nums.get(i), end=' ')
+    print('')
